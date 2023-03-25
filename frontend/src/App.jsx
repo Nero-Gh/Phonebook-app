@@ -1,7 +1,15 @@
+import AddNumber from "./AddNumber";
+import EditNumber from "./EditNumber";
+import GetNumber from "./GetNumber";
+
 function App() {
   return (
     <div>
-      <h1>Hello World front end</h1>
+      <AddNumber />
+      <br />
+      <GetNumber />
+      <br />
+      <EditNumber />
     </div>
   );
 }
