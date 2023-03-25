@@ -13,6 +13,8 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 
+app.use("/", require("./server/routes/phoneBook"));
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
