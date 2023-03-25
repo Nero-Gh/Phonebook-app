@@ -13,9 +13,9 @@ router.post("/add-phone", phoneBookController.addContact);
 router.get("/get-phone", phoneBookController.getContact);
 
 //Updating data from the database by id
-router.patch("/get-phone/:id", phoneBookController.getContactById);
+router.patch("/update-phone/:id", phoneBookController.getContactById);
 
 //Deleting data from the database by id
-router.delete("/get-phone/:id", phoneBookController.deleteContact);
+router.delete("/delete-phone/:id", phoneBookController.deleteContact);
 
 module.exports = router;
