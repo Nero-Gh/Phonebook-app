@@ -6,16 +6,16 @@ const phoneBookController = require("../controllers/phoneBookController");
  * Settinng up the routes
  */
 
-// Adding post route to be ble to add new contact
-router.post("/api/add-phone", phoneBookController.addContact);
-
 //Geting data from the database
-router.get("/api/get-phone", phoneBookController.getContact);
+router.get("/get-phone", phoneBookController.getContact);
+
+// Adding post route to be ble to add new contact
+router.post("/add-phone", phoneBookController.addContact);
 
 //Updating data from the database by id
-router.put("/api/get-phone/:id", phoneBookController.updateContactById);
+router.put("/update-phone/:id", phoneBookController.updateContactById);
 
 //Deleting data from the database by id
-router.delete("/api/delete-phone/:id", phoneBookController.deleteContact);
+router.delete("/delete-phone/:id", phoneBookController.deleteContact);
 
 module.exports = router;
