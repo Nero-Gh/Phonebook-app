@@ -13,7 +13,7 @@ const Home = () => {
    * Fetch Data from the backend
    */
   const fetchData = () => {
-    Axios.get("http://localhost:5000/api/get-phone")
+    Axios.get("http://localhost:5000/get-phone")
       .then((res) => {
         setMyVar(res.data.data.phoneNumbers);
       })

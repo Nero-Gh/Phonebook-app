@@ -45,7 +45,7 @@ const AddNumber = () => {
    */
 
   const addData = () => {
-    Axios.post("http://localhost:5000/api/add-phone", { name, phone })
+    Axios.post("http://localhost:5000/add-phone", { name, phone })
       .then((response) => {
         console.log(response.data.data.phoneNumber);
       })

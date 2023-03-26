@@ -14,15 +14,16 @@ const EditNumber = () => {
   /**
    * Update data to the backend function when the form is submitted
    */
+  console.log(id);
 
-  Axios.patch(`http://localhost:5000/api/get-phone/${id}`, formData)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
+  // Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
+  //   .then((res) => {
+  //     console.log(res.data.data.phoneNumbers);
+  //   })
+  //   .catch((err) => console.log(err));
 
   const updateData = () => {
-    Axios.patch(`http://localhost:5000/update-phone/${id}`, formData)
+    Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
       .then((res) => {
         console.log(res.data);
       })
@@ -31,6 +32,7 @@ const EditNumber = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     updateData();
   };
 

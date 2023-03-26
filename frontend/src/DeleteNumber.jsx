@@ -9,7 +9,7 @@ const DeleteNumber = (props) => {
   const { id } = useParams();
 
   const deletePhone = () => {
-    Axios.delete(`http://localhost:8080/get-phone/${props.id}`)
+    Axios.delete(`http://localhost:8080/delete-phone/${props.id}`)
       .then((res) => {
         console.log(res.data);
         console.log("Deleted");
