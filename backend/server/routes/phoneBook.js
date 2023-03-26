@@ -16,7 +16,7 @@ router.get("/get-phone", phoneBookController.getContact);
 router.get("/get-phone/:id", phoneBookController.getContactById);
 
 //Updating data from the database by id
-router.patch("/update-phone/:id", phoneBookController.updateContactById);
+router.put("/update-phone/:id", phoneBookController.updateContactById);
 
 //Deleting data from the database by id
 router.delete("/delete-phone/:id", phoneBookController.deleteContact);
