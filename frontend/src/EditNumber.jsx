@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { useParams } from "react-router-dom";
 
 const EditNumber = () => {
   // const [newPhone, setNewPhone] = useState([]);
@@ -38,13 +39,19 @@ const EditNumber = () => {
   /**
    * First set useState to hold the fetch data
    */
-  const [id, setId] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+
+  const { id } = useParams();
+  const [data, setData] = useState(null);
+  const [formData, setFormData] = useState({ name: "", phone: "" });
 
   /**
    * Update data to the backend function when the form is submitted
    */
+  Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
 
   const updateData = () => {
     // Axios.get(`http://localhost:5000/get-phone/${id}`)
@@ -55,7 +62,7 @@ const EditNumber = () => {
     //   })
     //   .catch((err) => console.log(err));
 
-    Axios.patch(`http://localhost:5000/update-phone/${id}`, { name, phone })
+    Axios.patch(`http://localhost:5000/update-phone/${id}`, formData)
       .then((res) => {
         console.log(res.data);
       })
@@ -74,16 +81,18 @@ const EditNumber = () => {
           <label name="name">Name:</label>
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
         </p>
         <p>
           <label name="phone">Phone:</label>
           <input
             type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            name="phone"
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
           />
         </p>
         <button>Update Record</button>
