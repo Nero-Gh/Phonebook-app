@@ -50,6 +50,28 @@ exports.getContact = async (req, res) => {
  */
 
 exports.getContactById = async (req, res) => {
+  const phoneNumber = await phoneBook.findById(req.params.id);
+
+  try {
+    res.status(200).json({
+      status: "Success",
+      data: {
+        phoneNumber,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "Failed",
+      message: err,
+    });
+  }
+};
+
+/**
+ * Updating data from the database by id
+ */
+
+exports.updateContactById = async (req, res) => {
   const updatedPhone = await phoneBook.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -69,6 +91,10 @@ exports.getContactById = async (req, res) => {
     console.log(err);
   }
 };
+
+/**
+ * Deleting data from the database by id
+ */
 
 exports.deleteContact = async (req, res) => {
   await phoneBook.findByIdAndDelete(req.params.id);
