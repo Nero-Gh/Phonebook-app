@@ -75,11 +75,11 @@ exports.updateContactById = async (req, res) => {
  */
 
 exports.deleteContact = async (req, res) => {
-  await phoneBook.findByIdAndDelete(req.params.id);
+  await phoneBook.findByIdAndDelete({ _id: req.params.id });
 
   try {
     res.status(204).json({
-      status: "Success",
+      status: "Content Deleted Successfully",
       data: {},
     });
   } catch (err) {
