@@ -1,48 +1,23 @@
 import React, { useState } from "react";
 import Axios from "axios";
+// import { useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 
 const DeleteNumber = () => {
   const [newPhone, setNewPhone] = useState([]);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-  // const deletePhone = (id) => {
-  //   Axios.delete(`http://localhost:8080/delete-phone/${id}`);
-  // };
-  return (
-    <div className="container">
-      <h1>PhoneBook List</h1>
-      {/* {newPhone.map((val, key) => {
-        return (
-          <div key={key} className="phone">
-            <h1>{val.name}</h1>
-            <h1>{val.phone}</h1>
-            <input
-              type="number"
-              placeholder="update Phone..."
-              onChange={(e) => {
-                setNewPhone(e.target.value);
-              }}
-            />
-            <button
-              className="update-btn"
-              onClick={() => {
-                updatePhone(val._id);
-              }}
-            >
-              Update
-            </button>
-            <button
-              className="delete-btn"
-              onClick={() => {
-                deletePhone(val._id);
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        );
-      })} */}
-    </div>
-  );
+  const deletePhone = () => {
+    Axios.delete(`http://localhost:8080/get-phone/${id}`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+
+    navigate("/");
+  };
+  return deletePhone();
 };
 
 export default DeleteNumber;

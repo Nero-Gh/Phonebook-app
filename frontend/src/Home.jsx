@@ -48,7 +48,7 @@ const Home = () => {
                     <Link to={`/update-phone/${item._id}`}>Edit</Link>
                   </button>
                   <button>
-                    <a href="#">Delete</a>
+                    <Link to={`/delete-phone/${item._id}`}>Delete</Link>
                   </button>
                 </td>
               </tr>

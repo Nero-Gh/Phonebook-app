@@ -47,6 +47,7 @@ const EditNumber = () => {
   /**
    * Update data to the backend function when the form is submitted
    */
+
   Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
     .then((res) => {
       console.log(res.data);
@@ -82,7 +83,9 @@ const EditNumber = () => {
           <input
             type="text"
             name="name"
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, [e.target.name]: e.target.value })
+            }
           />
         </p>
         <p>
@@ -91,7 +94,7 @@ const EditNumber = () => {
             type="text"
             name="phone"
             onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
+              setFormData({ ...formData, [e.target.name]: e.target.value })
             }
           />
         </p>

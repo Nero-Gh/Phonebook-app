@@ -3,6 +3,7 @@ import AddNumber from "./AddNumber";
 import EditNumber from "./EditNumber";
 import Home from "./Home";
 import Header from "./Header";
+import DeleteNumber from "./DeleteNumber";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/add-phone" element={<AddNumber />} />
         <Route path="/update-phone/:id" element={<EditNumber />} />
+        <Route path="/delete-phone/:id" element={<DeleteNumber />} />
       </Routes>
     </div>
   );
