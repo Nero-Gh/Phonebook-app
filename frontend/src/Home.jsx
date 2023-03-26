@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,7 +13,8 @@ const Home = () => {
    * Fetch Data from the backend
    */
   const fetchData = () => {
-    Axios.get("http://localhost:5000/get-phone")
+    axios
+      .get("http://localhost:5000/get-phone")
       .then((res) => {
         setMyVar(res.data.data.phoneNumbers);
       })
@@ -32,13 +33,16 @@ const Home = () => {
    */
 
   const deleteData = (id) => {
-    console.log(id);
-    Axios.delete(`http://localhost:5000/delete/${id}`)
+    // console.log(id);
+    axios
+      .delete(`http://localhost:5000/delete/${id}`)
       .then((res) => {
         console.log(res.data);
         console.log("Deleted");
       })
       .catch((err) => console.log(err));
+
+    // window.location.reload();
   };
 
   return (
