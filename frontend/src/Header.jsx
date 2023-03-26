@@ -13,7 +13,7 @@ function Header() {
             <Link to="/add-phone">Add Number</Link>
           </li>
           <li>
-            <Link to="/update-phone">Update Number</Link>
+            <Link to="/update-phone/:id">Update Number</Link>
           </li>
         </ul>
       </nav>
