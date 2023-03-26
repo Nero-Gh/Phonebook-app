@@ -71,24 +71,36 @@ exports.getContactById = async (req, res) => {
  * Updating data from the database by id
  */
 
+// exports.updateContactById = async (req, res) => {
+//   const updatedPhone = await phoneBook.findByIdAndUpdate(
+//     req.params.id,
+//     req.body,
+//     {
+//       new: true,
+//       runValidators: true,
+//     }
+//   );
+//   try {
+//     res.status(200).json({
+//       status: "Success",
+//       data: {
+//         updatedPhone,
+//       },
+//     });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
 exports.updateContactById = async (req, res) => {
-  const updatedPhone = await phoneBook.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  );
   try {
-    res.status(200).json({
-      status: "Success",
-      data: {
-        updatedPhone,
-      },
-    });
-  } catch (err) {
-    console.log(err);
+    const updatedPhone = await phoneBook.findByIdAndUpdate(
+      req.params.id,
+      req.body
+    );
+    res.send(updatedPhone);
+  } catch (error) {
+    res.status(500).send(error);
   }
 };
 
