@@ -16,14 +16,8 @@ const EditNumber = () => {
    */
   console.log(id);
 
-  // Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
-  //   .then((res) => {
-  //     console.log(res.data.data.phoneNumbers);
-  //   })
-  //   .catch((err) => console.log(err));
-
   const updateData = () => {
-    Axios.put(`http://localhost:5000/update-phone/${id}`, formData)
+    Axios.put(`http://localhost:5000/update/${id}`, formData)
       .then((res) => {
         console.log(res.data);
       })

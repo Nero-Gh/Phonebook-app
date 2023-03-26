@@ -27,6 +27,20 @@ const Home = () => {
    */
   useEffect(() => fetchData(), []);
 
+  /**
+   * Deleting Data from the backend
+   */
+
+  const deleteData = (id) => {
+    console.log(id);
+    Axios.delete(`http://localhost:5000/delete/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        console.log("Deleted");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <table>
@@ -45,11 +59,9 @@ const Home = () => {
                 <td>{item.phone}</td>
                 <td>
                   <button>
-                    <Link to={`/update-phone/${item._id}`}>Edit</Link>
+                    <Link to={`/update/${item._id}`}>Edit</Link>
                   </button>
-                  <button>
-                    <Link to={`/delete-phone/${item._id}`}>Delete</Link>
-                  </button>
+                  <button onClick={() => deleteData(item._id)}>Delete</button>
                 </td>
               </tr>
             );

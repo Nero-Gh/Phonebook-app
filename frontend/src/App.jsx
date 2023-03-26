@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add-phone" element={<AddNumber />} />
-        <Route path="/update-phone/:id" element={<EditNumber />} />
-        <Route path="/delete-phone/:id" element={<DeleteNumber />} />
+        <Route path="/update/:id" element={<EditNumber />} />
+        <Route path="/delete/:id" element={<DeleteNumber />} />
       </Routes>
     </div>
   );
