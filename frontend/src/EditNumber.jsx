@@ -68,7 +68,7 @@ const EditNumber = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateData();
+    // updateData();
   };
 
   return (
