@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   /**
@@ -44,7 +45,7 @@ const Home = () => {
                 <td>{item.phone}</td>
                 <td>
                   <button>
-                    <a href="#">Edit</a>
+                    <Link to={`/update-phone/${item._id}`}>Edit</Link>
                   </button>
                   <button>
                     <a href="#">Delete</a>

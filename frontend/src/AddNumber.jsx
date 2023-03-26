@@ -33,28 +33,57 @@ const AddNumber = () => {
   //     <button onClick={addNewNumber}>Add New Number</button>
   //   </div>
 
-  // /**
-  //  * First set useState to hold the fetch data
-  //  */
+  /**
+   * First set useState to hold the fetch data
+   */
 
-  // const [name, setName] = useState("");
-  // const [phone, setPhone] = useState(0);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
-  // const fetchData = () => {
-  //   Axios.get("http://localhost:5000/add-phone")
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Some Error Occured: ", error);
-  //     });
-  // };
+  /**
+   * Add data to the backend
+   */
 
-  // useEffect(() => {
+  const addData = () => {
+    Axios.post("http://localhost:5000/add-phone", { name, phone })
+      .then((response) => {
+        console.log(response.data.data.phoneNumber);
+      })
+      .catch((error) => {
+        console.log("Some Error Occured When submitting: ", error);
+      });
+  };
 
-  // }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addData();
+  };
 
-  return <div></div>;
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <p>
+          <label name="name">Name:</label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </p>
+        <p>
+          <label name="phone">Phone:</label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </p>
+        <button>Add Number</button>
+      </form>
+    </div>
+  );
 };
 
 export default AddNumber;
