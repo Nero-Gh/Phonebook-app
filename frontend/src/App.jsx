@@ -1,15 +1,18 @@
+import { Routes, Route } from "react-router-dom";
 import AddNumber from "./AddNumber";
 import EditNumber from "./EditNumber";
-import GetNumber from "./GetNumber";
+import Home from "./Home";
+import Header from "./Header";
 
 function App() {
   return (
     <div>
-      <AddNumber />
-      <br />
-      <GetNumber />
-      <br />
-      <EditNumber />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add-phone" element={<AddNumber />} />
+        <Route path="/update-phone" element={<EditNumber />} />
+      </Routes>
     </div>
   );
 }

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
-const EditNumber = () => {
-  // const [newPhone, setNewPhone] = useState([]);
-  // //   const [phonebook, setPhonebook] = useState([]);
+const DeleteNumber = () => {
+  const [newPhone, setNewPhone] = useState([]);
 
-  // const updatePhone = (id) => {
-  //   Axios.put("http://localhost:5000/update-phone", { id, newPhone });
+  // const deletePhone = (id) => {
+  //   Axios.delete(`http://localhost:8080/delete-phone/${id}`);
   // };
-
   return (
     <div className="container">
+      <h1>PhoneBook List</h1>
       {/* {newPhone.map((val, key) => {
         return (
           <div key={key} className="phone">
@@ -31,6 +30,14 @@ const EditNumber = () => {
             >
               Update
             </button>
+            <button
+              className="delete-btn"
+              onClick={() => {
+                deletePhone(val._id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         );
       })} */}
@@ -38,4 +45,4 @@ const EditNumber = () => {
   );
 };
 
-export default EditNumber;
+export default DeleteNumber;
