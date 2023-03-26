@@ -46,29 +46,25 @@ const EditNumber = () => {
    * Update data to the backend function when the form is submitted
    */
 
-  // const updateData = () => {
-  //   Axios.get(`http://localhost:5000/get-phone/${id}`)
-  //     .then((res) => {
-  //       console.log(res.data.data.phoneNumbers._id);
-  //       setName(res.data.data.phoneNumbers);
-  //       setPhone(res.data.data.phoneNumbers);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const updateData = () => {
+    // Axios.get(`http://localhost:5000/get-phone/${id}`)
+    //   .then((res) => {
+    //     console.log(res.data.data.phoneNumbers._id);
+    //     setName(res.data.data.phoneNumbers);
+    //     setPhone(res.data.data.phoneNumbers);
+    //   })
+    //   .catch((err) => console.log(err));
 
-  // useEffect(() => {
-  //   updateData();
-  // }, [id]);
-
-  Axios.patch(`http://localhost:5000/update-phone/${id}`, { name, phone })
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
+    Axios.patch(`http://localhost:5000/update-phone/${id}`, { name, phone })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // updateData();
+    updateData();
   };
 
   return (
